@@ -1,0 +1,199 @@
+.App {
+    text-align: center;
+  }
+  
+  .auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-container input {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .auth-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .auth-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .home-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .home-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .admin-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .admin-container form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .admin-container input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .admin-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .admin-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-container li {
+    margin: 10px 0;
+  }
+  
+  .admin-container li button {
+    margin-left: 10px;
+    background-color: #dc3545;
+  }
+  
+  .admin-container li button:hover {
+    background-color: #c82333;
+  }
+  
+  .admin-container .logout {
+    background-color: #dc3545;
+    margin-top: 20px;
+  }
+  
+  .admin-container .logout:hover {
+    background-color: #c82333;
+  }
+  
+  /* New styles for Dashboard */
+  .dashboard-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .dashboard-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dashboard-container li {
+    margin: 10px 0;
+  }
+  
+  .dashboard-container li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dashboard-container li button:hover {
+    background-color: #218838;
+  }
+  
+  .dashboard-container li button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .dashboard-container .logout {
+    background-color: #dc3545;
+    margin-top: 20px;
+  }
+  
+  .dashboard-container .logout:hover {
+    background-color: #c82333;
+  }
+  
+  .result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+  }
+
+  .admin-container .reset {
+    background-color: #ffc107; /* Yellow for reset */
+    color: black;
+    margin: 10px;
+  }
+  
+  .admin-container .reset:hover {
+    background-color: #e0a800;
+  }
