@@ -1,61 +1,88 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
+  const [showOtpInput, setShowOtpInput] = useState(false);
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError('');
+    setMessage('');
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
       });
-      const token = res.data.token;
-      sessionStorage.setItem('token', token); // Use sessionStorage instead of localStorage
-
-      const decoded = jwtDecode(token);
-      const role = decoded.user.role;
-
-      if (role === 'admin') {
-        navigate('/admin');
-      } else {
-        navigate('/dashboard');
-      }
+      setMessage(res.data.msg);
+      setShowOtpInput(true);
     } catch (err) {
-      setError(err.response.data.msg || 'Error logging in');
+      setError(err.response?.data?.msg || 'Login failed');
+    }
+  };
+
+  const handleOtpVerify = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', {
+        email,
+        otp,
+      });
+      sessionStorage.setItem('token', res.data.token);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.msg || 'OTP verification failed');
     }
   };
 
   return (
-    <div className="auth-container">
+    <div>
       <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>
-        Don't have an account? <a href="/register">Register</a>
-      </p>
+      {!showOtpInput ? (
+        <form onSubmit={handleLogin}>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Send OTP</button>
+        </form>
+      ) : (
+        <form onSubmit={handleOtpVerify}>
+          <div>
+            <label>Enter OTP:</label>
+            <input
+              type="text"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Verify OTP</button>
+        </form>
+      )}
+      {message && <p style={{ color: 'green' }}>{message}</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 };
