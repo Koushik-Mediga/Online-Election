@@ -1,0 +1,53 @@
+/* Admin.css */
+.admin-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-container h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .admin-container h2 {
+    color: #34495e;
+    margin-top: 20px;
+  }
+  
+  .admin-container button {
+    margin: 5px;
+  }
+  
+  .admin-container button[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .admin-container button:not([type="submit"]) {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .admin-container .reset {
+    background-color: #e74c3c;
+  }
+  
+  .admin-container .logout {
+    background-color: #7f8c8d;
+    margin-top: 20px;
+  }
+  
+  .admin-container form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .admin-container input {
+    flex: 1;
+    min-width: 200px;
+  }

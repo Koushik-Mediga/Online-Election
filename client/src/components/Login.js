@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -43,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='formDiv'>
       <h2>Login</h2>
       {!showOtpInput ? (
         <form onSubmit={handleLogin}>

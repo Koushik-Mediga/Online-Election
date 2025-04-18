@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Admin from './components/Admin';
 import Dashboard from './components/Dashboard';
 import './styles.css';
+import './App.css';
 
 function App() {
   return (
