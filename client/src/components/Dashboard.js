@@ -104,7 +104,14 @@ const Dashboard = () => {
             <ul>
               {candidates.map((candidate) => (
                 <li key={candidate._id}>
-                  {candidate.name} 
+                <a
+                  href="/manifesto.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className='candidate-link'
+                >
+                  {candidate.name}
+                </a>
                   <button onClick={() => handleVote(candidate._id)} disabled={!!myVote}>
                     Vote
                   </button>
